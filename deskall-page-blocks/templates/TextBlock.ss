@@ -2,7 +2,7 @@
 <div <% if ContentImage %>class="uk-flex" data-uk-grid <% if LightBox %>data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %><% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
-			<div class="$ImageWidth uk-flex uk-flex-center">
+			<div class="$ImageWidth uk-flex uk-flex-center <% if Layout == right %>uk-flex-right@m<% else %>uk-flex-left@m<% end_if %>">
 				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" ><% end_if %>
 					<figure>
 						<img class="uk-preserve" src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %><% if Top.RoundedImage %>$ContentImage.FocusFill(350,350).URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %><% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %><% end_if %> <% if Top.RoundedImage %>class="uk-border-circle"<% end_if %>>
